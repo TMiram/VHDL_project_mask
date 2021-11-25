@@ -1,0 +1,24 @@
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto d238bab2cb8b4562b8e1f83d51e0c467 --incr --debug typical --relax --mt 2 -L fifo_generator_v13_2_5 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot top_tb_behav xil_defaultlib.top_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package vl.vl_types
+Compiling module xil_defaultlib.glbl
+Compiling architecture behavioral of entity xil_defaultlib.flip_flop8 [\flip_flop8(bus_width=9)\]
+Compiling module fifo_generator_v13_2_5.fifo_generator_v13_2_5_bhv_ver_s...
+Compiling module fifo_generator_v13_2_5.fifo_generator_v13_2_5_CONV_VER(...
+Compiling module fifo_generator_v13_2_5.fifo_generator_vlog_beh(C_COMMON...
+Compiling module xil_defaultlib.fifo_generator_0
+Compiling architecture top_arch of entity xil_defaultlib.top [top_default]
+Compiling architecture bench of entity xil_defaultlib.top_tb
+Built simulation snapshot top_tb_behav
