@@ -1,0 +1,45 @@
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto d238bab2cb8b4562b8e1f83d51e0c467 --incr --debug typical --relax --mt 2 -L fifo_generator_v13_2_5 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot traitement_tb_behav xil_defaultlib.traitement_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3813] value in initialization depends on signal 'px1' [C:/Users/tm780870/project_5/project_5.srcs/sim_1/new/Mask1.vhd:69]
+WARNING: [VRFC 10-3813] value in initialization depends on signal 'resized_px1' [C:/Users/tm780870/project_5/project_5.srcs/sim_1/new/Mask1.vhd:70]
+WARNING: [VRFC 10-3813] value in initialization depends on signal 'px2' [C:/Users/tm780870/project_5/project_5.srcs/sim_1/new/Mask1.vhd:72]
+WARNING: [VRFC 10-3813] value in initialization depends on signal 'resized_px2' [C:/Users/tm780870/project_5/project_5.srcs/sim_1/new/Mask1.vhd:73]
+WARNING: [VRFC 10-3813] value in initialization depends on signal 'px3' [C:/Users/tm780870/project_5/project_5.srcs/sim_1/new/Mask1.vhd:75]
+WARNING: [VRFC 10-3813] value in initialization depends on signal 'resized_px3' [C:/Users/tm780870/project_5/project_5.srcs/sim_1/new/Mask1.vhd:76]
+WARNING: [VRFC 10-3813] value in initialization depends on signal 'px4' [C:/Users/tm780870/project_5/project_5.srcs/sim_1/new/Mask1.vhd:78]
+WARNING: [VRFC 10-3813] value in initialization depends on signal 'resized_px4' [C:/Users/tm780870/project_5/project_5.srcs/sim_1/new/Mask1.vhd:79]
+WARNING: [VRFC 10-3813] value in initialization depends on signal 'px5' [C:/Users/tm780870/project_5/project_5.srcs/sim_1/new/Mask1.vhd:81]
+WARNING: [VRFC 10-3813] value in initialization depends on signal 'resized_px5' [C:/Users/tm780870/project_5/project_5.srcs/sim_1/new/Mask1.vhd:82]
+WARNING: [VRFC 10-3813] value in initialization depends on signal 'px6' [C:/Users/tm780870/project_5/project_5.srcs/sim_1/new/Mask1.vhd:84]
+WARNING: [VRFC 10-3813] value in initialization depends on signal 'resized_px6' [C:/Users/tm780870/project_5/project_5.srcs/sim_1/new/Mask1.vhd:85]
+WARNING: [VRFC 10-3813] value in initialization depends on signal 'px7' [C:/Users/tm780870/project_5/project_5.srcs/sim_1/new/Mask1.vhd:87]
+WARNING: [VRFC 10-3813] value in initialization depends on signal 'resized_px7' [C:/Users/tm780870/project_5/project_5.srcs/sim_1/new/Mask1.vhd:88]
+WARNING: [VRFC 10-3813] value in initialization depends on signal 'px8' [C:/Users/tm780870/project_5/project_5.srcs/sim_1/new/Mask1.vhd:90]
+WARNING: [VRFC 10-3813] value in initialization depends on signal 'resized_px8' [C:/Users/tm780870/project_5/project_5.srcs/sim_1/new/Mask1.vhd:91]
+WARNING: [VRFC 10-3813] value in initialization depends on signal 'px9' [C:/Users/tm780870/project_5/project_5.srcs/sim_1/new/Mask1.vhd:93]
+WARNING: [VRFC 10-3813] value in initialization depends on signal 'resized_px9' [C:/Users/tm780870/project_5/project_5.srcs/sim_1/new/Mask1.vhd:94]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.std_logic_textio
+Compiling package ieee.numeric_std
+Compiling package vl.vl_types
+Compiling module xil_defaultlib.glbl
+Compiling architecture behavioral of entity xil_defaultlib.flip_flop8 [\flip_flop8(bus_width=9)\]
+Compiling module fifo_generator_v13_2_5.fifo_generator_v13_2_5_bhv_ver_s...
+Compiling module fifo_generator_v13_2_5.fifo_generator_v13_2_5_CONV_VER(...
+Compiling module fifo_generator_v13_2_5.fifo_generator_vlog_beh(C_COMMON...
+Compiling module xil_defaultlib.fifo_generator_0
+Compiling architecture top_arch of entity xil_defaultlib.top [top_default]
+Compiling architecture mask1_arch of entity xil_defaultlib.Mask1 [mask1_default]
+Compiling architecture traitement1_arch of entity xil_defaultlib.traitement1 [traitement1_default]
+Compiling architecture arch_traitement_tb of entity xil_defaultlib.traitement_tb
+Built simulation snapshot traitement_tb_behav
