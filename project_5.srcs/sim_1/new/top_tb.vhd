@@ -43,6 +43,7 @@ begin
   stimulus: process
   begin
 -- Put initialisation code here
+RESET<='0';
 enWrite<='0';
 D1<="00000000";
 wait for 10*clock_period;
