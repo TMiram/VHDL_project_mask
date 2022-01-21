@@ -1,7 +1,7 @@
-Running: xsim.dir/tb_lena_dupliq_behav/xsimk.exe -simmode gui -wdb tb_lena_dupliq_behav.wdb -simrunnum 0 -socket 49759
+Running: xsim.dir/tb_lena_dupliq_behav/xsimk.exe -simmode gui -wdb tb_lena_dupliq_behav.wdb -simrunnum 0 -socket 59626
 Design successfully loaded
-Design Loading Memory Usage: 6584 KB (Peak: 6584 KB)
+Design Loading Memory Usage: 6576 KB (Peak: 6576 KB)
 Design Loading CPU Usage: 31 ms
 Simulation completed
-Simulation Memory Usage: 15504 KB (Peak: 15504 KB)
-Simulation CPU Usage: 2608 ms
+Simulation Memory Usage: 15508 KB (Peak: 15508 KB)
+Simulation CPU Usage: 2515 ms

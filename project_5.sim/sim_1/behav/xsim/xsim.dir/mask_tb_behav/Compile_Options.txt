@@ -1,1 +1,1 @@
--wto "d238bab2cb8b4562b8e1f83d51e0c467" --incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "unisims_ver" -L "unimacro_ver" -L "secureip" -L "xpm" --snapshot "mask_tb_behav" "xil_defaultlib.mask_tb" "xil_defaultlib.glbl" -log "elaborate.log" 
+-wto "d238bab2cb8b4562b8e1f83d51e0c467" --incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" -L "xpm" --snapshot "mask_tb_behav" "xil_defaultlib.mask_tb" -log "elaborate.log" 

@@ -62,6 +62,24 @@ component top is
            );
 end component;
 
+component Mask1 is
+    Port ( CLK : in STD_LOGIC;
+           RESET : in STD_LOGIC;
+           OUTPUT_PX : out  STD_LOGIC_VECTOR (7 downto 0);
+           PX1: in  STD_LOGIC_VECTOR (7 downto 0);
+           PX2: in  STD_LOGIC_VECTOR (7 downto 0);
+           PX3: in  STD_LOGIC_VECTOR (7 downto 0);
+           PX4: in  STD_LOGIC_VECTOR (7 downto 0);
+           PX5: in  STD_LOGIC_VECTOR (7 downto 0);
+           PX6: in  STD_LOGIC_VECTOR (7 downto 0);
+           PX7: in  STD_LOGIC_VECTOR (7 downto 0);
+           PX8: in  STD_LOGIC_VECTOR (7 downto 0);
+           PX9: in  STD_LOGIC_VECTOR (7 downto 0);
+           enWrite : in  STD_LOGIC;
+           enRead: out  STD_LOGIC
+           );
+end component;
+
 signal input_write: std_logic;
 signal output_bin:STD_LOGIC_VECTOR (7 downto 0);
 signal input_component:STD_LOGIC_VECTOR (7 downto 0);
@@ -85,32 +103,13 @@ signal p9: std_logic_vector (7 downto 0):= (others=>'0');
 signal output_signal:std_logic_vector (7 downto 0):= (others=>'0');
 signal output_read: STD_LOGIC;
 
-component Mask1 is
-    Port ( CLK : in STD_LOGIC;
-           RESET : in STD_LOGIC;
-           OUTPUT_PX : out  STD_LOGIC_VECTOR (7 downto 0);
-           PX1: in  STD_LOGIC_VECTOR (7 downto 0);
-           PX2: in  STD_LOGIC_VECTOR (7 downto 0);
-           PX3: in  STD_LOGIC_VECTOR (7 downto 0);
-           PX4: in  STD_LOGIC_VECTOR (7 downto 0);
-           PX5: in  STD_LOGIC_VECTOR (7 downto 0);
-           PX6: in  STD_LOGIC_VECTOR (7 downto 0);
-           PX7: in  STD_LOGIC_VECTOR (7 downto 0);
-           PX8: in  STD_LOGIC_VECTOR (7 downto 0);
-           PX9: in  STD_LOGIC_VECTOR (7 downto 0);
-           enWrite : in  STD_LOGIC;
-           enRead: out  STD_LOGIC
-           );
-           
-end component;
-
 
 begin
 
 top1: top port map( 
            CLK=>CLK,
            RESET=>RESET,
-           D1=>input_component,
+           D1=>D1,
            Q1=>output_bin,
            PX1=>p1,
            PX2=>p2,
@@ -124,7 +123,7 @@ top1: top port map(
            enWrite=>input_write,
            enRead=>output_Mread
            );
-
+           
 mask: Mask1 port map (
            CLK=>CLK,
            RESET=>RESET,

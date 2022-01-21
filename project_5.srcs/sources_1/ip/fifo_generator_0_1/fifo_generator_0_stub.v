@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
 // Date        : Fri Nov 19 15:13:16 2021
 // Host        : g121-14 running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub
-//               C:/Users/tm780870/project_5/project_5.srcs/sources_1/ip/fifo_generator_0_1/fifo_generator_0_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top fifo_generator_0 -prefix
+//               fifo_generator_0_ fifo_generator_0_stub.v
 // Design      : fifo_generator_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a100tcsg324-1

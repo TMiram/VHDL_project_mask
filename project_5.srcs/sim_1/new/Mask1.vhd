@@ -48,14 +48,14 @@ entity Mask1 is
            enWrite : in  STD_LOGIC;
            enRead: out  STD_LOGIC
            );
-           
+
 end Mask1;
 
 
 architecture Mask1_arch of Mask1 is
---COEFFS           
+--COEFFS
 signal coeff1 :signed(8 downto 0) := ("111111111");
-signal coeff2 :signed (8 downto 0) := ("111111111");
+signal coeff2 :signed (8 downto 0) := ("111111110");
 signal coeff3 :signed (8 downto 0) := ("111111111");
 
 signal coeff4 :signed (8 downto 0) := ("000000000");
@@ -63,7 +63,7 @@ signal coeff5 :signed (8 downto 0) := ("000000000");
 signal coeff6 :signed (8 downto 0) := ("000000000");
 
 signal coeff7 :signed (8 downto 0) := ("000000001");
-signal coeff8 :signed (8 downto 0) := ("000000001");
+signal coeff8 :signed (8 downto 0) := ("000000010");
 signal coeff9 :signed (8 downto 0) := ("000000001");
 
 --coeff*pixel de taille +1 (on met un 0 à gauhe =>poids fort)
@@ -80,35 +80,56 @@ signal pounded_px9:  signed (17 downto 0);
 --sommes:
 --MODIFIER LES TAILLES ET AJOUTER DES BITS DE POIDS FORT
 signal signedNewPx3: signed(18 downto 0);
-signal tempSum1: signed(17 downto 0);
+signal tempSum1: signed(18 downto 0);
 
 signal signedNewPx6: signed(18 downto 0);
-signal tempSum2: signed(17 downto 0);
+signal tempSum2: signed(18 downto 0);
 
 signal signedNewPx9: signed(18 downto 0);
-signal tempSum3: signed(17 downto 0);
+signal tempSum3: signed(18 downto 0);
 
-signal sumLine1: signed(18 downto 0);
-signal sumLine2: signed(18 downto 0);
-signal sumLine3: signed(18 downto 0);
+signal sumLine1: signed(19 downto 0);
+signal sumLine2: signed(19 downto 0);
+signal sumLine3: signed(19 downto 0);
 signal sumLine12: signed(20 downto 0);
 
-signal SumL1L2: signed(18 downto 0);
-signal NewsumLine3: signed(19 downto 0);
-signal totalSum: signed(19 downto 0);
-signal tempOUT: signed(19 downto 0);
+signal SumL1L2: signed(20 downto 0);
+signal NewsumLine3: signed(20 downto 0);
+signal totalSum: signed(21 downto 0);
+signal tempOUT: signed(21 downto 0);
+
+--COMPTEUR
+signal temp1: std_logic;
+signal temp2: std_logic;
+signal temp3: std_logic;
+signal temp4: std_logic;
+signal temp5: std_logic;
+signal temp6: std_logic;
+signal temp7: std_logic;
+signal temp8: std_logic;
+signal temp9: std_logic;
+signal temp10: std_logic;
+
+--bascules
+signal bascPX3: signed(18 downto 0);
+signal bascPX6: signed(18 downto 0);
+signal bascPX9: signed(18 downto 0);
+
+signal bascLine3: signed(20 downto 0);
 
 begin
+
+
+
 process(CLK,RESET)
 begin
     if (RESET='1')
     then
     OUTPUT_PX<="00000000";
 
-    
     elsif (rising_edge(CLK))
     then
-    
+    temp1<=enWrite;
 --ajustement du poids ET de la taille des pixels
                 --Ligne1
     pounded_px1<=coeff1*signed('0'&PX1);
@@ -127,28 +148,61 @@ begin
 --SOMMES
                         --Ligne1
     --on concatène le pixel 3 avec son bit de poids fort pour augmenter sa taille sans modifier sa valeur
-    signedNewPx3<=pounded_px3(16)&pounded_px3;
-    --on fait la somme des trois pixels
-    tempSum1<=pounded_px1+pounded_px2;
-    sumLine1<=tempSum1+signedNewPx3;
+    temp1<=enWrite;
+    temp2<=temp1;
+    temp3<=temp2;
+    temp4<=temp3;
+    temp5<=temp4;
+    temp6<=temp5;
+    temp7<=temp6;
+    temp8<=temp7;
+    temp9<=temp8;
+    temp10<=temp9;
     
-                        --Ligne2  
-    signedNewPx6<=pounded_px6(16)&pounded_px6;
-    tempSum2<=pounded_px4+pounded_px5;
-    sumLine2<=tempSum2+signedNewPx6;
+    enRead<=temp5;
+    
+    bascPx3<=pounded_px3(17)&pounded_px3;
+    signedNewPx3<=bascPx3;
+    --on fait la somme des trois pixels
+    tempSum1<=(pounded_px1(17)&pounded_px1)+(pounded_px2(17)&pounded_px2);
+    
+    sumLine1<=(tempSum1(17)&tempSum1)+(signedNewPx3(17)&signedNewPx3);
+    
+                        --Ligne2
+    bascPx6<=pounded_px6(17)&pounded_px6;
+    signedNewPx6<=bascPx6;
+    tempSum2<=(pounded_px4(17)&pounded_px4)+(pounded_px5(17)&pounded_px5);
+    sumLine2<=(tempSum2(18)&tempSum2)+(signedNewPx6(18)&signedNewPx6);
         
-                        --Ligne3       
-    signedNewPx9<=signed(pounded_px9(16)&pounded_px9);
-    tempSum3<=pounded_px6+pounded_px7;
-    sumLine3<=tempSum3+signedNewPx9;
+                        --Ligne3    
+    bascPx9<=pounded_px9(17)&pounded_px9;
+    signedNewPx9<=bascPx9;
+    tempSum3<=(pounded_px6(17)&pounded_px6)+(pounded_px7(17)&pounded_px7);
+    sumLine3<=(tempSum3(18)&tempSum3)+(signedNewPx9(18)&signedNewPx9);
         
                         --SOMME DES LIGNES
-    NewsumLine3<=sumLine3(16)&sumLine3;
-    SumL1L2<=sumLine1+sumLine2;
-    totalSum<=SumL1L2+NewsumLine3;
-    tempOut<=totalSum;
-    OUTPUT_PX<=STD_Logic_Vector(tempOut(7 downto 0));
+    --enRead
+    bascLine3<=sumLine3(19)&sumLine3;
+    NewsumLine3<=bascLine3;
+    SumL1L2<=(sumLine1(19)&sumLine1)+(sumLine2(19)&sumLine2);
+    --temp5<=temp4;
+    totalSum<=(SumL1L2(20)&SumL1L2)+(NewsumLine3(20)&NewsumLine3);
+    --temp6<=temp5;
+    tempOut<=-totalSum;
+    if (tempOut>"000000000000000000000")
+    then
+    OUTPUT_PX<=STD_Logic_Vector(tempOut(16 downto 9));
+    elsif (totalSum>"000000000000000000000")
+    then
+    OUTPUT_PX<=STD_Logic_Vector(totalSum(16 downto 9));
     end if;
+    --enRead<=temp6;
+    
+    
+    --enRead<=enWrite;
+    
+    end if;
+    
     
 end process;
 end Mask1_arch;
